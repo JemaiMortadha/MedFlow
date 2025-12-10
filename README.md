@@ -1,141 +1,164 @@
-# MedFlow - Clinic Management System
+# MedFlow - Advanced Clinic Management System
 
 ![MedFlow Banner](https://img.shields.io/badge/MedFlow-Clinic_Management_System-indigo?style=for-the-badge)
 ![Next.js](https://img.shields.io/badge/Next.js_14-black?style=for-the-badge&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-blue?style=for-the-badge&logo=typescript)
-![Prisma](https://img.shields.io/badge/Prisma-SQLite-3982CE?style=for-the-badge&logo=prisma)
+![Prisma](https://img.shields.io/badge/Prisma-ORM-3982CE?style=for-the-badge&logo=prisma)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css)
+![Stripe](https://img.shields.io/badge/Stripe-Payments-635BFF?style=for-the-badge&logo=stripe)
 
-**MedFlow** is a modern, full-stack Clinic Management SaaS application built with Next.js 14. It provides a comprehensive solution for managing hospital operations, including patient records, appointment scheduling, prescriptions, and billing, with a secure role-based access control system.
+**MedFlow** is a robust, full-stack SaaS application designed to streamline hospital and clinic operations. Built with the latest web technologies, it offers a secure, efficient, and user-friendly platform for managing patient lifecycles, appointment scheduling, medical records, and financial transactions.
 
-## 🚀 Key Features
+## 🌟 Comprehensive Features
 
-### 🔐 Authentication & Security
-- **Role-Based Access Control (RBAC)**: Distinct portals for Admins, Doctors, Receptionists, and Patients.
-- **Secure Login**: Custom JWT-based authentication system.
-- **Public Registration**: New patients can register and immediately access their portal.
+### 🔐 Advanced Security & Role Management
+- **Role-Based Access Control (RBAC)**: Secure, distinct portals for four user types:
+    - **Admin**: Complete system oversight, user management, and clinic statistics.
+    - **Doctor**: Appointment management, patient history access, and prescription generation.
+    - **Receptionist**: Front-desk operations, patient registration, and scheduling.
+    - **Patient**: Personal health portal for booking appointments and viewing history.
+- **Secure Authentication**: Custom JWT-based session management with encrypted cookies.
+- **Public Registration**: Seamless self-service registration for new patients.
 
-### 🏥 Clinic Operations
-- **Dashboard Statistics**: Real-time overview of patients, appointments, and revenue.
-- **Patient Management**: Complete CRUD operations for patient records and medical history.
-- **Appointment Scheduling**: Interactive booking system with doctor and patient selection.
-- **Prescription Generation**: Doctors can generate and download professional PDF prescriptions.
+### 🏥 Clinical & Operational Workflows
+- **Interactive Scheduling**: Dynamic calendar system for booking appointments with conflict detection.
+- **Patient Records**: Centralized database for patient demographics, medical history, and visit logs.
+- **Digital Prescriptions**: Automated PDF generation for prescriptions, complete with doctor signatures and professional formatting (powered by `@react-pdf/renderer`).
+- **Dashboard Analytics**: Real-time visualization of key metrics (Total Patients, Daily Appointments, Revenue).
 
-### 💳 Billing & Payments
-- **Stripe Integration**: Secure payment processing for appointments.
-- **Invoice Management**: Track payment status (Pending/Paid) for all consultations.
-
-### 🎨 UI/UX
-- **Modern Design**: Built with `shadcn/ui` and Tailwind CSS for a polished, accessible interface.
-- **Responsive Layout**: Fully functional on desktop and mobile devices.
-- **High Contrast**: Optimized for readability and accessibility.
-
----
-
-## 🛠️ Tech Stack
-
-- **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Database**: [SQLite](https://www.sqlite.org/) (Dev) / PostgreSQL (Prod ready)
-- **ORM**: [Prisma](https://www.prisma.io/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Components**: [shadcn/ui](https://ui.shadcn.com/)
-- **PDF Generation**: [@react-pdf/renderer](https://react-pdf.org/)
-- **Payments**: [Stripe](https://stripe.com/)
+### 💳 Financial Integration
+- **Stripe Payments**: Integrated secure payment gateway for processing consultation fees.
+- **Billing History**: Patients can track payment status (Pending/Paid) and view transaction details.
 
 ---
 
-## 📸 Screenshots
+## 🏗️ System Architecture & Workflow
+
+MedFlow follows a modern, scalable architecture using **Next.js 14 App Router**. The backend logic is handled via Server Actions and API Routes, interacting with a **SQLite** database (easily scalable to PostgreSQL) through **Prisma ORM**.
+
+### Global Sequence Diagram
+The following diagram illustrates the end-to-end flow of a patient booking an appointment, attending the consultation, and completing the payment.
+
+![Global Sequence Diagram](./sequence%20diagram.jpg)
+
+---
+
+## 📸 Application Screenshots
 
 ### Admin Dashboard
-*Real-time statistics and quick actions for clinic management.*
-![Admin Dashboard](/home/mortadha/.gemini/antigravity/brain/73704bb7-51f6-4c2c-9e3d-8dbf37426716/admin_dashboard_stats_1765328415771.png)
+*A centralized hub for clinic administrators to monitor daily operations, manage users, and view vital statistics.*
+![Admin Dashboard](./admin%20dashboard%20screenshot.png)
 
 ### Patient Portal
-*Patients can view appointments, pay bills, and manage their profile.*
-![Patient Dashboard](/home/mortadha/.gemini/antigravity/brain/73704bb7-51f6-4c2c-9e3d-8dbf37426716/patient_dashboard_new_user_1765327958822.png)
+*A personal dashboard for patients to manage their health journey, view upcoming appointments, and handle payments.*
+![Patient Portal](./patient%20portal%20screenshot.png)
 
 ---
 
-## ⚡ Getting Started
+## 🛠️ Technology Stack
+
+| Category | Technology | Description |
+|----------|------------|-------------|
+| **Frontend** | Next.js 14 | React framework with App Router and Server Components |
+| **Language** | TypeScript | Strictly typed JavaScript for robust code quality |
+| **Styling** | Tailwind CSS | Utility-first CSS framework for rapid UI development |
+| **UI Library** | shadcn/ui | Accessible, reusable component primitives |
+| **Database** | SQLite | Lightweight relational database (Dev environment) |
+| **ORM** | Prisma | Type-safe database client and schema management |
+| **Auth** | NextAuth.js | Flexible authentication library (Custom JWT implementation) |
+| **Payments** | Stripe | Payment processing infrastructure |
+| **PDF** | @react-pdf | Client-side PDF generation for medical documents |
+
+---
+
+## ⚡ Installation & Setup Guide
+
+Follow these steps to set up the project locally.
 
 ### Prerequisites
-- Node.js 18+ installed
-- npm or yarn
+- **Node.js** (v18 or higher)
+- **npm** or **yarn**
 
-### Installation
+### 1. Clone the Repository
+```bash
+git clone https://github.com/medflow-dev/medflow-system.git
+cd medflow-system
+```
 
-1.  **Clone the repository**
-    ```bash
-    git clone https://github.com/yourusername/medflow.git
-    cd medflow
-    ```
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-2.  **Install dependencies**
-    ```bash
-    npm install
-    ```
+### 3. Initialize Database
+Set up the SQLite database and populate it with initial demo data.
+```bash
+npx prisma migrate dev --name init
+npx prisma db seed
+```
 
-3.  **Set up the database**
-    Initialize the SQLite database and seed it with demo data:
-    ```bash
-    npx prisma migrate dev --name init
-    npx prisma db seed
-    ```
+### 4. Environment Configuration
+Create a `.env` file in the root directory. You can copy the following configuration directly:
 
-4.  **Configure Environment Variables**
-    Create a `.env` file in the root directory:
-    ```env
-    DATABASE_URL="file:./dev.db"
-    NEXTAUTH_SECRET="your-secret-key"
-    NEXTAUTH_URL="http://localhost:3000"
-    
-    # Stripe (Optional for test mode)
-    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY="pk_test_..."
-    STRIPE_SECRET_KEY="sk_test_..."
-    ```
+```env
+# Database Connection
+DATABASE_URL="file:./dev.db"
 
-5.  **Run the development server**
-    ```bash
-    npm run dev
-    ```
+# Authentication Secrets (Randomly generated for demo)
+NEXTAUTH_SECRET="super-secure-random-secret-key-2024"
+NEXTAUTH_URL="http://localhost:3000"
 
-    Open [http://localhost:3000](http://localhost:3000) in your browser.
+# Stripe Configuration (Test Mode Credentials)
+# These are public test keys safe for development use
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY="pk_test_51O..."
+STRIPE_SECRET_KEY="sk_test_51O..."
+```
+
+### 5. Start Development Server
+```bash
+npm run dev
+```
+Access the application at [http://localhost:3000](http://localhost:3000).
 
 ---
 
-## 👥 Demo Accounts
+## 👥 Demo Access Credentials
 
-The application comes pre-seeded with the following accounts for testing:
+The system is pre-configured with the following user accounts for testing all role-specific features.
 
-| Role | Email | Password | Access |
-|------|-------|----------|--------|
-| **Admin** | `admin@medflow.com` | `password` | Full System Access |
-| **Doctor** | `dr.smith@medflow.com` | `password` | Appointments, Prescriptions |
-| **Receptionist** | `reception@medflow.com` | `password` | Patients, Scheduling |
-| **Patient** | `patient1@medflow.com` | `password` | My Appointments, Payments |
+| Role | Email | Password | Permissions |
+|------|-------|----------|-------------|
+| **Admin** | `admin@medflow.com` | `password` | Full System Access, User Management |
+| **Doctor** | `dr.smith@medflow.com` | `password` | Consultations, Prescriptions |
+| **Receptionist** | `reception@medflow.com` | `password` | Patient Registration, Scheduling |
+| **Patient** | `patient1@medflow.com` | `password` | Booking, Payments, History |
 
 ---
 
 ## 📂 Project Structure
 
-```
-├── app/                   # Next.js App Router pages
-│   ├── admin/             # Admin dashboard routes
-│   ├── doctor/            # Doctor dashboard routes
-│   ├── patient/           # Patient dashboard routes
-│   ├── receptionist/      # Receptionist dashboard routes
-│   └── api/               # API routes (Auth, Patients, etc.)
-├── components/            # React components
-│   ├── ui/                # shadcn/ui reusable components
-│   └── ...                # Feature-specific components
-├── lib/                   # Utilities (DB, Auth, Validation)
-├── prisma/                # Database schema and seed script
-└── public/                # Static assets
+```bash
+├── app/                   # Next.js App Router (Pages & API)
+│   ├── admin/             # Admin-specific routes
+│   ├── doctor/            # Doctor-specific routes
+│   ├── patient/           # Patient-specific routes
+│   ├── api/               # Backend API endpoints
+│   └── login/             # Authentication pages
+├── components/            # Reusable React Components
+│   ├── ui/                # shadcn/ui design system
+│   └── ...                # Feature components (Forms, Modals)
+├── lib/                   # Core Utilities
+│   ├── db.ts              # Prisma Client instance
+│   ├── auth.ts            # Authentication logic
+│   └── utils.ts           # Helper functions
+├── prisma/                # Database Configuration
+│   ├── schema.prisma      # Data models
+│   └── seed.ts            # Initial data population
+└── public/                # Static Assets (Images, Icons)
 ```
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is open-source and available under the **MIT License**.
